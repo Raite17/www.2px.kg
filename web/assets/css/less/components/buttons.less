@@ -1,0 +1,84 @@
+// Base styles
+// --------------------------------------------------
+.btn, button, [type="submit"], [type="button"], [type="reset"] {
+    .button();
+
+    &[disabled], &.disabled {
+        border-color     : @gray-light !important;
+        color            : @gray-light !important;
+        background-color : @gray-lighter !important;
+        & when (@ie) and (@ie8) {
+            cursor : default !important;
+        }
+        cursor           : not-allowed !important;
+        .box-shadow(~'none !important', @button-box-shadow);
+    }
+}
+.btn {
+
+    &.hide {
+        &:extend(.hide);
+    }
+
+    &[class*="grid_"], [class*="column_"] > & {
+        padding-left  : 0 !important;
+        padding-right : 0 !important;
+    }
+
+    // Buttons style
+    // --------------------------------------------------
+    @import "button/buttons-style";
+
+    // Alternate color buttons
+    // --------------------------------------------------
+    @import "button/buttons-color";
+
+    // Block button
+    // --------------------------------------------------
+    @import "button/buttons-block";
+
+    // Button with icon
+    // --------------------------------------------------
+    @import "button/buttons-icon";
+
+    // Button link
+    // --------------------------------------------------
+    @import "button/buttons-link";
+
+    // Button outline
+    // --------------------------------------------------
+    @import "button/buttons-outline";
+
+    // Button caption
+    // --------------------------------------------------
+    @import "button/buttons-caption";
+}
+.movie-title{
+    button{
+        background: #000;
+        border: #000;
+        border-radius: 3em;
+        font-size: 1.3em;
+        font-weight: 600;
+        font-family: @font-family-headings;
+        text-transform: uppercase;
+        padding: 0.5em 1em;
+    }
+}
+.slide-overlay{
+    button{
+        background: #d4335c;
+        border: #000;
+        border-radius: 3em;
+        font-size: 1.3em;
+        font-weight: 600;
+        font-family: @font-family-headings;
+        text-transform: uppercase;
+        padding: 0.5em 1em;
+        margin-top: 6em;
+    }
+}
+
+// Button group
+// --------------------------------------------------
+@import "button/buttons-group";

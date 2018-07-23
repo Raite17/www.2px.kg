@@ -1,0 +1,53 @@
+// Message styles
+// -------------------------
+.callout when (@callouts) {
+    margin-bottom : 20px;
+    padding       : @padding-base-vertical @padding-base-horizontal;
+    border        : 1px solid #ddd;
+    border-left   : 4px solid @brand-primary;
+    color         : inherit;
+    .border-radius(3px);
+
+    .callout-header {
+        color         : @brand-primary;
+        margin-bottom : 5px;
+    }
+
+    // Alternate styles
+    // -------------------------
+    &.success when (@callout-color-success) and (@callout-colors) {
+        border-left-color : @brand-success;
+
+        .callout-header {
+            color : @brand-success;
+        }
+    }
+    &.warning when (@callout-color-warning) and (@callout-colors) {
+        border-left-color : @brand-warning;
+
+        .callout-header {
+            color : @brand-warning;
+        }
+    }
+    &.error when (@callout-color-error) and (@callout-colors) {
+        border-left-color : @brand-error;
+
+        .callout-header {
+            color : @brand-error;
+        }
+    }
+    &.info when (@callout-color-info) and (@callout-colors) {
+        border-left-color : @brand-info;
+
+        .callout-header {
+            color : @brand-info;
+        }
+    }
+    &.gray when (@callout-color-gray) and (@callout-colors) {
+        border-left-color : @gray;
+
+        .callout-header {
+            color : @gray;
+        }
+    }
+}

@@ -1,0 +1,141 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+     <header class="wrap line-header -transparent d-visible">
+        <h1 class="grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+            <a href="#" title="2 PX" itemprop="url" class="current">
+            </a>
+        </h1>
+        <nav id="main-menu" class="grid_8 d-visible">
+            <ul class="main_menu">
+                <li class="category cat-1">
+                    <a  href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrap mb30px m-hide">
+        <div class="slide d-hide"></div>
+        <div class="cycle-slideshow " data-cycle-slides=".slide" data-cycle-fx="scrollHorz" data-cycle-max-z="10" data-cycle-pager=".cycle-pager" data-cycle-timeout="7000"
+             data-cycle-prev=".prev" data-cycle-next=".next">
+            <!-- prev/next links -->
+            <div class="cycle-buttons d-visible">
+                <span class="cycle-prev prev action-button"></span>
+                <span class="cycle-next next action-button"></span>
+            </div>
+            {% for movie in slide %}
+                <div class="slide">
+                    <img alt="poster_title"  src="{{ asset('assets/img/slider-img/' ~ movie.slider) }}"/>
+                    <div class="slide-overlay">
+                        <div class="container">
+                            <p class="slide-movie-title">{{ movie.title }}</p>
+                            <div class="stars-container"></div>
+                            <p class="movies-content">{{ movie.description }}</p>
+                            <p class="text-center"> <button>Забронировать Места</button></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- PAGER FOR SLIDER -->
+            <div id="pager" class="cycle-pager"></div>
+        </div>
+    </div>
+    <!-- Container -->
+    <div  class="container">
+        <!-- Content box -->
+        <section class="grid_12" role="main">
+            <h2 class="text-center">Сегодня в кино</h2>
+            <ul class="today list-movies">
+               {% for movie in movies%}
+                   <li>
+                       <img src="{{ asset('assets/img/uploads/' ~ movie.poster) }}" alt="{{ movie.title }}" >
+                       <div class="movie-info">
+                           <div class="movie-title">
+                               <span>{% if movie.premier %}{{ movie.premier|date('d-m-Y ') }}{% endif %}</span>
+                               <span>{{ movie.title }}</span>
+                               <form action="{{ path('book_tickets',{'id' : movie.id}) }}">
+                                   <button>Забронировать</button>
+                               </form>
+                               <a href="{{ path('movie_info', {'id': movie.id}) }}">Подробнее</a>
+                           </div>
+                       </div>
+                   </li>
+               {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <div class="gray-darker-bg">
+        <div class="container">
+            <section class="grid_12" role="main">
+                <h2 class="text-center">Скоро на экранах</h2>
+                <ul class="today list-movies">
+                    {% for movie in soon_movies%}
+                        <li>
+                            <img src="{{ asset('assets/img/uploads/' ~ movie.poster) }}" alt="{{ movie.title }}" >
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    <span>{% if movie.premier %}{{ movie.premier|date('d-m-Y ') }}{% endif %}</span>
+                                    <span>{{ movie.title }}</span>
+                                    <form action="{{ path('book_tickets',{'id' : movie.id}) }}">
+                                        <button>Забронировать</button>
+                                    </form>
+                                    <a href="{{ path('movie_info', {'id': movie.id}) }}">Подробнее</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="grid_6 t-grid_3 col_left">
+                <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+                <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+            </div>
+            <div class="grid_6 t-grid_3 text-right col_right">
+                <p>Необходима помощь? - Пишите:</p>
+                <a href=#" itemprop="email">support@2px.kg</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Главная</span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
+{% endblock %}

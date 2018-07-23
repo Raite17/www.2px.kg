@@ -1,0 +1,4 @@
+app_movies:
+    resource: "@AppBundle/Resources/config/routing/movies.yml"
+    prefix:   /movies
+

@@ -1,0 +1,29 @@
+// Parallax
+//==================================================
+// Default parallax effect
+// Support: FF, Chrome, Safari, Opera, IE8+
+.parallax when (@parallax = true){
+    background-size       : cover;
+    background-position   : 50% 50%;
+    background-repeat     : no-repeat;
+    background-attachment : fixed;
+    overflow              : hidden;
+    height                : @parallax-height;
+
+    &.take-from-widget, .take-from-widget{
+        position : relative;
+        & > img, & > ._lbox{
+             display : none;
+        }
+        [data-url*="imageonly"]{
+            position : absolute;
+            left     : 5px;
+            top      : 5px;
+            z-index  : 999;
+        }
+    }
+
+    &.height-auto{
+        height : auto;
+    }
+}

@@ -1,0 +1,75 @@
+& when (@mobile-loader) {
+    html {
+        &.mobile, &.tablet {
+            overflow : hidden;
+
+            &::before {
+                content          : "";
+                display          : block;
+                position         : fixed;
+                top              : 0;
+                left             : 0;
+                bottom           : 0;
+                right            : 0;
+                z-index          : 101;
+                background-color : @brand-primary;
+            }
+
+            .mobile-loader {
+                display  : block;
+                position : fixed;
+                top      : 0;
+                left     : 0;
+                bottom   : 0;
+                right    : 0;
+                z-index  : 102;
+
+                &::after, &::before {
+                    margin           : auto;
+                    content          : "";
+                    display          : block;
+                    border           : 5px solid transparent;
+                    border-top-color : @primary-color;
+                    position         : absolute;
+                    left             : 0;
+                    right            : 0;
+                    bottom           : 0;
+                    top              : 0;
+                    .border-radius(50%);
+                }
+
+                &::after {
+                    animation : rotate 1.45s linear infinite;
+                    width     : 4em;
+                    height    : 4em;
+
+                }
+                &::before {
+                    animation : rotate 1.85s linear infinite;
+                    width     : 4.75em;
+                    height    : 4.75em;
+                }
+            }
+
+            &.loaded {
+                overflow : initial;
+
+                &::before {
+                    content : none;
+                }
+                .mobile-loader {
+                    display : none;
+                }
+            }
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            transform : rotate(0deg)
+        }
+        100% {
+            transform : rotate(360deg)
+        }
+    }
+}

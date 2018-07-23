@@ -1,0 +1,34 @@
+.img_gallery when (@image-gallery) {
+    margin    : 10px 0;
+    font-size : 0;
+
+    li {
+        font-size  : 1rem;
+        position   : relative;
+        margin     : 5px;
+        text-align : center;
+        .inline-block(middle);
+    }
+
+    a {
+        img {
+            .thumbnail-state();
+        }
+    }
+
+    .image_caption {
+        position    : absolute;
+        bottom      : 0;
+        left        : 0;
+        right       : 0;
+        z-index     : 10;
+        margin      : 0;
+        line-height : @line-height;
+        padding     : @padding-small-vertical;
+        color       : @thumbnail-caption-color;
+        text-align  : center;
+        font-size   : @font-size-small;
+        .text-overflow;
+        .rgba(@thumbnail-caption-bg; @thumbnail-caption-opacity);
+    }
+}

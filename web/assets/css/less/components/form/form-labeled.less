@@ -1,0 +1,73 @@
+.labeled when (@form-labeled) {
+    position : relative;
+    .clearfix-mixin();
+
+    label, .label {
+        margin-top    : 0;
+        margin-bottom : 0;
+        height        : unit(@button-line-height * 2, em);
+        line-height   : unit(@button-line-height * 2, em);
+        background    : @input-border-color;
+        text-align    : center;
+        color         : #fff;
+        .transition();
+    }
+
+    input:focus, select:focus {
+        .box-shadow(none; @input-shadow-focus) !important;
+
+        & ~ label, & ~ .label {
+            background : @input-border-color-focus;
+        }
+    }
+
+    &.icon when (@form-labeled-icon) and (@flexkit-icons) {
+        input, select, textarea {
+
+            &:focus ~ [class*="@{icon-prefix}-"] {
+                .opacity(1);
+            }
+        }
+
+        [class*="@{icon-prefix}-"] {
+            position  : absolute;
+            margin    : auto;
+            top       : 0;
+            bottom    : 0;
+            z-index   : 2;
+            height    : 1em;
+            font-size : 1.25em;
+            .opacity();
+
+            &::before {
+                vertical-align : top;
+            }
+        }
+
+        &.right {
+            [class*="@{icon-prefix}-"] {
+                right : .375em;
+            }
+
+            input, textarea {
+                padding-right : 2em;
+            }
+        }
+
+        &.left {
+            [class*="@{icon-prefix}-"] {
+                left : .375em
+            }
+            input, textarea {
+                padding-left : 2em;
+            }
+        }
+
+        &.top {
+            [class*="@{icon-prefix}-"] {
+                margin : 0;
+                top    : .375em;
+            }
+        }
+    }
+}

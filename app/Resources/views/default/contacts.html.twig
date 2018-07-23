@@ -1,0 +1,129 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+    <!-- Container -->
+    <div id="page" class="container">
+        <header class="grid_12  line-header -transparent d-visible">
+            <div class="h1 grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+                <a href="#" title="2px" itemprop="url" class="current">
+                    <!--<img src="http://www.3dfactorymonaco.com/plugins/widcard/system/userdata/CorporateLogo.png" alt="Studio de Création 3D Factory Monaco : Animation, Visualisation, Maquettes | Marseille, Toulon, Nice, Cannes, Monaco" width="165" itemprop="logo">-->
+                    <!--<span itemprop="name">3D Factory</span>-->
+                </a>
+            </div>
+            <nav id="main-menu" class="grid_8 d-visible">
+                <ul class="main_menu">
+                    <li class="category cat-1">
+                        <a  href="{{ path('index') }}">Главная</a>
+                    </li>
+                    <li class="category cat-1">
+                        <a href="{{ path('contacts') }}">Контакты</a>
+                    </li>
+                    <li class="category cat-1">
+                        <a href="{{ path('sign_in') }}">Вход</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <h1 class="text-center grey-bg grid_12 mt30px">Контакты</h1>
+        <!-- Content box -->
+        <section class="grid_12 contact" role="main">
+            <h3 class="grey-bg grid_12 mt20px">Местоположение</h3>
+            <div id="map" style="width: 100%; height: 400px; background-color: grey;"></div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: 42.8501553, lng: 74.5906207};
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 8, center: uluru});
+                    var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+            </script>
+            <div class="grid_8 mt30px">
+                <form class="">
+                    <p class="grid_6 omega t-grid_3 t-omega">
+                        <label class="required">Имя</label>
+                        <input name="name" type="text" required>
+                    </p>
+                    <p class="grid_6 omega t-grid_3 t-omega">
+                        <label class="">Фамилия</label>
+                        <input name="lastname" type="text" required>
+                    </p>
+                    <p class="grid_6 alpha t-alpha">
+                        <label>Номер Телефона</label>
+                        <input type="text" class="grid_8 omega t-omega" name="phone" required></p>
+                    <p class="grid_6  omega t-grid_3 t-omega">
+                        <label class="required">Email</label>
+                        <input name="email" type="email" required>
+                    </p>
+
+                    <p class="grid_12 alpha omega t-grid_6 t-alpha t-omega">
+                        <label>Сообщение</label>
+                        <textarea name="message"></textarea>
+                    </p>
+                    <input type="hidden" name="formName" value="contact">
+                    <input type="submit" class="send_message" value="Отправить сообщение">
+                </form>
+            </div>
+            <aside class="grid_4">
+                <section class="aside-box">
+                    <h4 class="h2">Свяжитесь с нами....</h4>
+                    <p>
+                        <span style="text-decoration-line: underline; text-decoration-style: initial; text-decoration-color: initial;">
+                            <strong>Адрес</strong>
+                            </span>: г.Бишкек улица "Не существующая" <br> пересекает бульвар Безымянный<br /><br>
+                        <span style="text-decoration-line: underline; text-decoration-style: initial; text-decoration-color: initial;">
+                            <strong>Телефон</strong>
+                        </span>: 0550-36-42-39
+                    </p>
+                </section>
+            </aside>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="grid_6 t-grid_3 col_left">
+                <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+                <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+            </div>
+            <div class="grid_6 t-grid_3 text-right col_right">
+                <p>Необходима помощь? - Пишите:</p>
+                <a href=#" itemprop="email">support@2px.kg</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Контакты</span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
+{% endblock %}
+{% block javascripts %}
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKUYgIgzHYP4uV5Do2bKXieheD8zxRETo&callback=initMap">
+    </script>
+{% endblock %}

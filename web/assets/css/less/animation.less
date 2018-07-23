@@ -1,0 +1,59 @@
+@import "_getting_started/2-variables";
+
+// Animation
+//==================================================
+.scroll-effect {
+    visibility : hidden;
+}
+.animated {
+    visibility : visible;
+    .animated();
+
+    &.repeat {
+        .animation-iteration-count(infinite);
+    }
+
+    &.hinge {
+        .animation-duration(2s);
+    }
+}
+
+// Animate by Daniel Eden => http://daneden.me/animate
+//==================================================
+@import "systems/animations/Daniel_Eden";
+
+// Magic css3 animations => http://minimamente.com
+//=============================================
+@import "systems/animations/magic-animations";
+
+// Made by Justin Aguilar => www.justinaguilar.com/animations/
+//=============================================
+@import "systems/animations/Justin_Aguilar";
+
+// Other
+//=============================================
+& when (@animate-rotate) {
+    @-webkit-keyframes rotate {
+        0% {
+            .transform-origin(center);
+            .rotate(-360deg);
+        }
+        100% {
+            .transform-origin(center);
+            .rotate(0);
+        }
+    }
+    @keyframes rotate {
+        0% {
+            .transform-origin(center);
+            .rotate(-360deg);
+        }
+        100% {
+            .transform-origin(center);
+            .rotate(0);
+        }
+    }
+    .rotate {
+        .animation-name(rotate)
+    }
+}

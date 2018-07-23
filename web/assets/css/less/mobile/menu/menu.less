@@ -1,0 +1,122 @@
+@menu-bg: #ffffff;
+
+@dropdown-bg                : #ffffff;
+@dropdown-color             : @text-color;
+@dropdown-width             : 250px;
+@dropdown-margin-vertical   : 10px;
+@dropdown-margin-horizontal : 10px;
+
+.m-menu {
+	width      : @m-side-nav-width;
+	position   : fixed;
+	z-index    : 92;
+	overflow   : auto;
+	background : @menu-bg;
+	display    : none;
+	//	color      : @menu-color;
+	.box-shadow(0 0 7px fade(#000000, 50%));
+
+	// Types
+	&:not(.dropdown) {
+		top    : 0;
+		bottom : 0;
+
+		// Positions
+		&.left {
+			left : 0;
+		}
+		&.right {
+			right : 0;
+		}
+	}
+	&.dropdown {
+		width      : @dropdown-width;
+		overflow   : auto;
+		max-height : 70%;
+
+		&.top {
+			top    : @dropdown-margin-vertical;
+			bottom : auto;
+		}
+		&.bottom {
+			bottom : @dropdown-margin-vertical;
+			top    : auto;
+		}
+		&.right {
+			right : @dropdown-margin-horizontal;
+			left  : auto;
+		}
+		&.left {
+			left  : @dropdown-margin-horizontal;
+			right : auto;
+		}
+	}
+
+	// States
+	&.open {
+		display : block;
+	}
+
+	.menu-top-header {
+		height        : @m-top-nav-height;
+		border-bottom : 1px solid darken(@menu-bg, 5%);
+	}
+
+	ul {
+		position : relative;
+
+		ul {
+			display : none;
+			.rgba(#000000; 3%);
+
+			a {
+				padding-left : 48px;
+			}
+		}
+		&.open {
+			display : block !important;
+		}
+	}
+
+	li {
+		float         : none;
+		border-bottom : 1px solid darken(@menu-bg, 3%);
+		line-height   : @m-side-item-height;
+		font-weight   : bold;
+		position      : relative;
+
+		a {
+			padding         : 0 16px 0 28px;
+			display         : block;
+			text-decoration : none;
+			color           : #000;
+			.text-overflow();
+
+			&:hover, &.current {
+				background : darken(@menu-bg, 5%);
+				color      : @brand-primary;
+			}
+		}
+
+		&:hover {
+			& when not(@nav-bg = @nav-bg-li-hover) {
+				background : transparent;
+			}
+			& when not(@nav-color = @nav-color-li-hover) {
+				color : inherit;
+			}
+
+			ul {
+				display : none;
+			}
+		}
+
+		li {
+			border : none;
+
+			& + li {
+				border-top : 1px solid darken(@menu-bg, 5%);
+			}
+		}
+	}
+}

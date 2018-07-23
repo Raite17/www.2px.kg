@@ -1,0 +1,57 @@
+.ui-accordion:not(#cpanelul) when (@componentsJS-accordion) {
+    .ui-accordion-header {
+        display       : block;
+        position      : relative;
+        cursor        : pointer;
+        margin-top    : 2px;
+        margin-bottom : 0;
+        color         : @accordion-header-color;
+        background    : @accordion-header-bg;
+        padding       : .5em .75em;
+
+        &:hover {
+            color      : @accordion-header-color-hover;
+            background : @accordion-header-bg-hover;
+        }
+
+        a {
+            color           : inherit;
+            text-decoration : none;
+        }
+
+        &.ui-accordion-header-active {
+            color      : @accordion-header-color-active;
+            background : @accordion-header-bg-active;
+        }
+
+        &.icon-right {
+            &::before {
+                color       : @brand-success;
+                float       : right;
+                line-height : inherit;
+            }
+        }
+    }
+
+    .ui-accordion-icons {
+        .ui-accordion-header-icon {
+            .inline-block;
+            margin-left  : -.25em;
+            margin-right : .25em;
+            .icon-size(@icon-size-base);
+        }
+    }
+
+    .ui-accordion-noicons {
+    }
+
+    .ui-accordion-content {
+        background    : @accordion-content-bg;
+        border        : @accordion-content-border-width solid @accordion-content-border-color;
+        border-top    : none;
+        margin-top    : 0;
+        margin-bottom : 0;
+        padding       : .75em;
+        overflow      : auto;
+    }
+}

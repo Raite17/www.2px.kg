@@ -1,0 +1,340 @@
+//	PAGE Style
+//==================================================
+body {
+	// custom scroll-bar
+	//.scroll-bar();
+	height: 100%;
+	#page{
+		min-height: 100%;
+	}
+}
+
+main {
+}
+
+#page {
+}
+
+//	HEADER Style
+//==================================================
+header {
+	z-index  : 11;
+	position : absolute;
+	top      : 0;
+	left     : 0;
+	right    : 0;
+	// -- LOGO Style
+	.logo {
+		text-decoration : none;
+		a {
+			display : inline-block;
+		}
+		img {
+		}
+	}
+}
+
+// -- NAV Style
+nav {
+	padding : 1em 2em 0 0;
+}
+
+//	CONTENT Style
+//==================================================
+article {
+}
+
+.container {
+	section {
+		margin : 7% 0;
+	}
+}
+
+.list-movies {
+	margin  : 0;
+	padding : 0;
+	.inline-block-wrap(top);
+	li {
+		.grid-elements(4; @grid-margin-width; false; 2; 1);
+	}
+}
+
+.movie-info {
+	position : absolute;
+	opacity  : 0;
+	top      : 0;
+	left     : 0;
+	right    : 0;
+	bottom   : 0;
+	a {
+		display         : block;
+		text-decoration : none;
+	}
+}
+
+.list-movies li {
+	position   : relative;
+	text-align : center;
+}
+
+.list-movies li:hover .movie-info {
+	opacity          : 1;
+	//.rgba(#be365; 80%);
+	background-color : rgba(212, 51, 92, 0.8);
+}
+
+.list-movies li:hover .movie-title {
+	display  : inline-block;
+	.translate(0,50%);
+}
+
+.movie-title {
+	span {
+		display     : block;
+		font-family : @font-family-headings;
+		&:first-of-type {
+			font-size : 1.3em;
+		}
+		&:last-of-type {
+			font-size : 1.5em;
+			padding   : 1.2em 0;
+		}
+	}
+	a {
+		margin-top     : 1.2em;
+		color          : #fff;
+		font-family    : @font-family-headings;
+		font-size      : 1.1em;
+		font-weight    : 600;
+		text-transform : uppercase;
+	}
+}
+
+.title_ellipsis {
+	-webkit-line-clamp : 2;
+	-webkit-box-orient : vertical;
+	-ms-word-wrap      : break-word;
+	display            : -webkit-box;
+	overflow           : hidden;
+	font-size          : 14px;
+	font-weight        : 500;
+	line-height        : 1.2;
+	text-align         : center;
+	text-overflow      : ellipsis;
+}
+
+.title_ellipsis span {
+	font-family : "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+	font-size   : 20px;
+	color       : #fff;
+}
+
+//SLIDER Style
+//================================================
+.cycle-slideshow img {
+	background-color : #30110d;
+	opacity          : 0.5;
+}
+
+.slide-overlay {
+	position : absolute;
+	top      : 25%;
+	left     : 0;
+	right    : 0;
+	.slide_title {
+		padding          : 5px;
+		display          : inline-block;
+		font-size        : 0.9em;
+		background-color : #494b84;
+		border-radius    : 5px;
+	}
+	.slide-movie-title {
+		margin      : 0;
+		font-size   : 4.3em;
+		font-weight : 600;
+	}
+
+	.time {
+		font-size   : 1.2em;
+		font-weight : 300;
+		span {
+			margin-right  : 10px;
+			padding       : 0 5px;
+			background    : #d4335c;
+			font-size     : 0.8em;
+			border-radius : 2px;
+		}
+	}
+	.movies-content {
+		width : 50%;
+	}
+}
+//	form  Style
+//==================================================
+
+
+//	privat room Style
+//==================================================
+.privat_room {
+	color : #d4d4d4;
+	h3 {
+		font-size : 3.2em;
+		color     : #ececec;
+	}
+	.tickets, .films {
+		padding     : 0.7em;
+		background  : #000;
+		font-size   : 1.8em;
+		font-weight : 400;
+		span {
+			float : right;
+			color : #d4335c;
+		}
+	}
+	+ div {
+		padding          : 10px;
+		background-color : #000000;
+	}
+}
+
+.bonuses {
+	color       : #d4335c;
+	font-weight : 900;
+	font-size   : 5em;
+}
+
+.room_title {
+	font-size : 2em;
+	color: #ececec;
+}
+
+.privat_info {
+	padding-top : 2em;
+}
+
+.bonuses_title {
+	font-size   : 1.3em;
+	font-family : @font-family-headings;
+}
+.gray-darker-bg{
+	min-height: 100%;
+}
+
+//	SIDEBAR Style
+//==================================================
+//aside {
+//.aside-box {
+//margin-bottom : 30px;
+//}
+//}
+
+//	FOOTER Style
+//==================================================
+footer {
+	padding    : @padding-larger-vertical * 2 0;
+	background : @footer-bg;
+	color      : @footer-color;
+	font-size  : @font-size-small;
+	margin-top : -170px;
+	height     : 170px;
+	overflow   : hidden;
+	clear      : both;
+	.col_right {
+		a {
+			color           : #fff;
+			text-decoration : none;
+			font-size       : 1.3em;
+			text-transform  : uppercase;
+		}
+		p {
+			line-height : 5em;
+		}
+	}
+	.col_left {
+		p {
+			font-size   : 1.1em;
+			font-family : @font-family-headings;
+			&.tel {
+				font-size : 2.3em;
+			}
+		}
+	}
+}
+
+.movie-showtimes {
+	padding-top: 20px;
+	.header {
+		margin-bottom: 10px;
+		label {
+			font-size: 1.2em;
+			font-weight: 500;
+			color: #004e67;
+			vertical-align: middle;
+		}
+	}
+	.cinemas {
+		.cinema-item {
+			margin-bottom: 15px;
+			box-shadow: 3px 3px 5px 0 rgba(0,0,0,.15);
+			border-radius: 5px;
+		}
+	}
+	.cinema_title {
+		display: block;
+		font-size: 1.1em;
+		font-weight: 500;
+		background: #555;
+		background-size: contain;
+		color: #fff;
+		padding: 10px;
+		border-radius: 5px 5px 0 0;
+		text-decoration: none;
+	}
+	.halls {
+		border: 1px solid #555555;
+		border-top: 0;
+		border-radius: 0 0 5px 5px;
+	}
+	.hall {
+		color: #FFFFFF;
+		font-weight: 500;
+		padding: 12px 10px;
+		background: #55555555;
+		border-bottom: 1px solid #e1e1e1;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height:100%;
+		transition: background .4s;
+		&:last-child {
+			border-radius: 0 0 5px 5px;
+			border-bottom: 0;
+		}
+		&:hover {
+			background: rgba(212, 51, 92, 0.8);
+		}
+		a{
+			text-decoration: none;
+		}
+	}
+	.hall-name {
+		width: 200px;
+		float: left;
+		> span {
+			display: block;
+			float: left;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+}
+
+
+//	Button to scroll top
+//==================================================
+#go-top {
+	.button-color(#ffffff; fade(#000000, 50%); fade(#000000, 50%); @primary-color; @primary-bg; @primary-bg);
+}

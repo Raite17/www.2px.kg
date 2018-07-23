@@ -1,0 +1,263 @@
+@import "_getting_started/2-variables";
+@import "systems/normalize";
+// Reset & Basics
+//==================================================
+html, body{
+     height : 100%;
+}
+*{
+    -webkit-touch-callout       : none; //если надо, то запрещаем выделение текста
+    -webkit-tap-highlight-color : rgba(0, 0, 0, 0); //убираем фон подсветки ссылок и кнопок
+    -webkit-tap-highlight-color : transparent; //убираем фон подсветки ссылок и кнопок
+
+    &, &::before, &::after{
+        .box-sizing();
+    }
+}
+.selection();
+
+blockquote, q{
+    quotes : none;
+
+    &::before, &::after{
+        content : none;
+    }
+}
+em{
+    font-style : italic;
+}
+table{
+    border-spacing  : 0;
+    border-collapse : collapse;
+    //    word-break      : break-all
+}
+a:focus, [type="checkbox"]:focus, [type="radio"]:focus, *:focus{
+    outline : none;
+}
+a, [type="submit"], [type="button"], button, [type="checkbox"], [type="radio"]{
+    cursor : pointer;
+}
+img, [type="checkbox"], [type="radio"]{
+    vertical-align : middle;
+}
+
+img {
+	max-width : 100%;
+	height    : auto;
+    width: 100%;
+
+	& when (@img-broken-link-msg) {
+		position : relative;
+
+		&:after {
+			content          : "\e008" " " attr(alt);
+			display          : block;
+			z-index          : 2;
+			font-family      : @font-family-icons;
+			color            : @text-color;
+			position         : absolute;
+			left             : 0;
+			right            : 0;
+			top              : 0;
+			text-align       : center;
+			font-size        : 16px;
+			background-color : darken(@body-bg, 3%);
+		}
+	}
+}
+
+iframe {
+	border    : none;
+	width     : 100%;
+	max-width : 100%;
+}
+.gall{
+    .inline-block;
+}
+.gmaps{
+    color     : #000;
+    max-width : 100%;
+
+    img{
+        max-width : none;
+    }
+}
+.ltr{
+    direction    : ltr;
+    unicode-bidi : bidi-override;
+}
+.rtl{
+    direction    : rtl;
+    unicode-bidi : bidi-override;
+}
+.tpopup{
+    position : relative;
+}
+[contenteditable="true"]{
+    .inline-block();
+    background : @input-bg;
+    border     : @input-border-width solid @input-border-color;
+    cursor     : text;
+    padding    : @padding-mini-vertical @padding-mini-horizontal;
+}
+//// Reset Form
+////==================================================
+dl, dt, dd{
+    margin : 0;
+}
+input, select, textarea, button{
+    max-width : 100%;
+    width     : 100%;
+    .placeholder();
+}
+// Reset width of input images, buttons, radios, checkboxes
+button,
+[type="file"],
+[type="image"],
+[type="submit"],
+[type="reset"],
+[type="button"],
+[type="radio"],
+[type="checkbox"]{
+    width : auto; // Override of generic input selector
+}
+[type="file"]{
+    border  : none;
+    padding : 0;
+}
+[type="color"]{
+    padding : 0;
+}
+textarea{
+    vertical-align : top;
+    line-height    : normal;
+    .resize();
+}
+[type="checkbox"], [type="radio"]{
+    border : none;
+    height : auto;
+
+    &:focus{
+        .box-shadow(none; @input-shadow-focus) !important;
+    }
+}
+// Make multiple select elements height not fixed
+select[multiple],
+select[size]{
+    height : auto;
+}
+// Fix optgroup Firefox bug per https://github.com/twitter/bootstrap/issues/7611
+select optgroup{
+    font-style  : inherit;
+    font-size   : inherit;
+    font-family : inherit;
+}
+// Reset for all navigation items, related-products
+//==================================================
+.main_menu, .listpages, .listcategories, .featureditem, .featureapage, .search-results, .relatedpages, .listxrss, .related-products{
+    .clearfix-mixin();
+}
+//fix for Safari 3
+& when (@webkit){
+    ::i-block-chrome, .main_menu,
+    ::i-block-chrome, .listpages,
+    ::i-block-chrome, .listcategories,
+    ::i-block-chrome, .featureditem,
+    ::i-block-chrome, .search-results,
+    ::i-block-chrome, .relatedpages,
+    ::i-block-chrome, .listxrss,
+    ::i-block-chrome, .related-products{
+        display : table;
+        width   : 100%;
+    }
+}
+.main_menu, .main_menu li, .main_menu ul, .main_menu ul li,
+.sitemap, .sitemap li,
+.listpages, .listpages li,
+.listcategories, .listcategories li,
+.featureditem, .featureditem li,
+.featureapage,
+.relatedpages, .relatedpages li,
+.listxrss, .listxrss li,
+.search-results, .search-results li,
+.img_gallery, .img_gallery li,
+.related-products, .related-products li{
+    margin          : 0;
+    padding         : 0;
+    list-style-type : none;
+}
+.listpages,
+.listcategories,
+.featureditem,
+.featureapage,
+.search-results,
+.relatedpages,
+.listxrss,
+.related-products{
+    li{
+        position : relative;
+    }
+
+    a{
+        display         : block;
+        text-decoration : none;
+    }
+
+    .page-teaser-image{
+    }
+
+    img{
+        width : 100%;
+    }
+
+    .page-title{
+        margin      : 0 0 0.25em;
+        font-size   : @font-size-large;
+        font-family : @font-family-headings;
+    }
+}
+.listpages span,
+.listcategories span,
+.featureditem span,
+.featureapage p,
+.search-results span,
+.relatedpages span,
+.listxrss p,
+.related-products .product-description{
+    display  : block;
+    overflow : hidden;
+    margin   : 0;
+
+    &:empty{
+        display : none;
+    }
+}
+.reset-style{
+    .reset-style;
+}
+.clear{
+    display    : block;
+    clear      : both;
+    overflow   : hidden;
+    visibility : hidden;
+    height     : 0;
+}
+.clearfix{
+    .clearfix-mixin();
+}
+.disable-hover, .disable-hover *{
+    pointer-events : none !important;
+}
+.ui-widget-overlay, .overlay{
+    top        : 0;
+    left       : 0;
+    bottom     : 0;
+    right      : 0;
+    z-index    : 99;
+    background : fade(#6091d4, 50%);
+}
+.ui-widget{
+    & ~ .overlay{
+        z-index : 999;
+    }
+}

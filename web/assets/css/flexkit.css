@@ -1,0 +1,205 @@
+.ui-state-error {
+  background-color: #fcd5d4;
+  border-color: #f69593;
+  color: #813331;
+}
+.ui-state-highlight {
+  background-color: #c6eafa;
+  border-color: #70caf3;
+  color: #155e7f;
+}
+.carousel {
+  position: relative;
+  max-width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.carousel .carousel-clip {
+  overflow: hidden;
+  height: 100%;
+}
+.carousel .carousel-wrap {
+  font-size: 0;
+  min-width: 100%;
+}
+.carousel .carousel-wrap .carousel-item {
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+.carousel:hover .carousel-btn {
+  display: block;
+}
+.carousel .carousel-btn {
+  background: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 15;
+  margin: auto;
+  width: 3em;
+  display: none;
+  font-size: 14px;
+}
+.carousel .carousel-btn::before {
+  font-family: flexkit-icons;
+  font-size: 3em;
+  line-height: 1;
+  height: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.carousel .carousel-btn.prev {
+  left: 0;
+}
+.carousel .carousel-btn.prev::before {
+  content: "\e0a9";
+}
+.carousel .carousel-btn.next {
+  right: 0;
+}
+.carousel .carousel-btn.next::before {
+  content: "\e0a7";
+}
+.carousel .carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.tooltip {
+  cursor: help;
+}
+a.tooltip {
+  cursor: pointer;
+}
+.chosen-select {
+  width: 100%;
+}
+.chosen-select-deselect {
+  width: 100%;
+}
+.dataTables_wrapper {
+  width: 100%;
+}
+.dataTables_wrapper .dataTables_filter {
+  padding: 5px;
+  text-align: right;
+  font-size: 0.85em;
+}
+.dataTables_wrapper .dataTables_filter label input {
+  margin-left: 5px;
+  width: 250px;
+}
+.dataTables_wrapper .sorting,
+.dataTables_wrapper .sorting_asc,
+.dataTables_wrapper .sorting_desc {
+  cursor: pointer;
+  position: relative;
+  padding-right: 16px;
+  border-left: 1px solid #dddddd;
+}
+.dataTables_wrapper .sorting::after,
+.dataTables_wrapper .sorting_asc::after,
+.dataTables_wrapper .sorting_desc::after {
+  font-family: flexkit-icons;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e0b6";
+  font-size: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.dataTables_wrapper .sorting_asc::after {
+  content: "\e0b5";
+}
+.dataTables_wrapper .sorting_desc::after {
+  content: "\e0b2";
+}
+.dataTables_wrapper .dataTables_empty {
+  text-align: center;
+}
+.dataTables_paginate {
+  margin-top: 1em;
+  float: right;
+  font-size: 12px;
+}
+.dataTables_paginate .paginate_button {
+  background: #eeeeee;
+  margin: 0 .25em;
+  padding: .25em .75em;
+  min-width: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: #1d1e22;
+}
+.dataTables_paginate .paginate_button:hover {
+  background: #e7e7e7;
+}
+.dataTables_paginate .paginate_button.disabled,
+.dataTables_paginate .paginate_button.current {
+  cursor: default;
+  color: #e2e2e2;
+  background: #f6f6f6;
+}
+.dataTables_paginate .paginate_button.current {
+  font-weight: bold;
+  background: #a0aae3;
+  color: #fff;
+}
+.dataTables_paginate .paginate_button.first::before,
+.dataTables_paginate .paginate_button.last::before,
+.dataTables_paginate .paginate_button.previous::before,
+.dataTables_paginate .paginate_button.next::before,
+.dataTables_paginate .paginate_button.first::after,
+.dataTables_paginate .paginate_button.last::after,
+.dataTables_paginate .paginate_button.previous::after,
+.dataTables_paginate .paginate_button.next::after {
+  font-family: flexkit-icons;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.dataTables_paginate .paginate_button.first,
+.dataTables_paginate .paginate_button.last {
+  font-weight: bold;
+}
+.dataTables_paginate .paginate_button.first::before,
+.dataTables_paginate .paginate_button.last::before,
+.dataTables_paginate .paginate_button.first::after,
+.dataTables_paginate .paginate_button.last::after {
+  font-size: 15px;
+  font-weight: bold;
+}
+.dataTables_paginate .paginate_button.first::before,
+.dataTables_paginate .paginate_button.previous::before {
+  content: "\e0b1";
+}
+.dataTables_paginate .paginate_button.last::after,
+.dataTables_paginate .paginate_button.next::after {
+  content: "\e0af";
+}

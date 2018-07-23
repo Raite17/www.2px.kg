@@ -1,0 +1,340 @@
+// Example code for sub main menu
+//{ifpages}
+//  <span class="sub-menu-btn d-hide"></span> - button for sub menu
+//{/ifpages}
+
+//http://labs.rampinteractive.co.uk/android_dp_px_calculator/
+
+@m-text-color    : #212121;
+@m-font-family    : "Roboto", Tahoma, Arial;
+@m-font-size    : 14px;
+
+@m-top-nav: true;
+@m-top-nav-bg        : @brand-primary;
+@m-top-nav-color    : #ffffff;
+@m-top-nav-height    : 56px;
+@m-side-nav-width    : 260px;
+@m-side-item-height    : 48px;
+@m-top-nav-scroll-effect: false;
+
+@m-block-shadow: 0 0 7px fade(#000000, 50%);
+
+@m-tabs: true;
+@m-tabs_sub-of-main: false;
+
+@m-tabs-height: 48px;
+@m-tabs-item-gutter: 12px;
+@m-tabs-color        : lighten(@brand-primary, 25%);
+@m-tabs-color-active: @primary-color;
+@m-tabs-border-color: @primary-color;
+
+//
+
+@mobile-bar-zindex : 90;
+
+@top-block : true;
+@top-block-height : @m-top-nav-height;
+//unit(@button-line-height * 2, em);
+@top-block-bg : @primary-bg;
+@top-block-color : @primary-color;
+
+@bottom-block : false;
+@bottom-block-height : @m-top-nav-height;
+//unit(@button-line-height * 3, em);
+@bottom-block-bg : #ffffff;
+@bottom-block-color : @primary-color;
+
+@menu-line-height : unit(@button-line-height * 2, em);
+@menu-bg : #ffffff;
+@menu-color : #212121;
+// Used for left and right menu
+@menu-width : 300px;
+// Used for top and bottom menu
+@menu-height : 300px;
+
+& when (@responsive), (@adaptive) {
+	@media (min-width : (@responsive-size-tablet + 1)) {
+		body {
+			.mobile-bar, .mobile-menu {
+				display : none;
+			}
+		}
+	}
+	@media only screen and (max-width : @responsive-size-tablet) {
+		body {
+			& when (@top-block) and not(@m-tabs) {
+				padding-top : @top-block-height;
+			}
+			& when (@top-block) and (@m-tabs){
+				padding-top : @m-top-nav-height + @m-tabs-height;
+			}
+			& when (@bottom-block) {
+				padding-bottom : @bottom-block-height;
+			}
+			&[data-menu-open], &[data-overlay] {
+				overflow : hidden;
+
+				&::after {
+					content  : '';
+					position : fixed;
+					top      : 0;
+					left     : 0;
+					right    : 0;
+					bottom   : 0;
+					z-index  : @mobile-bar-zindex + 1;
+				}
+			}
+		}
+		[data-menu-open], &[data-overlay] {
+			&::after {
+				.rgba(#000000; 50%);
+			}
+		}
+	}
+
+	.mobile-bar {
+		position    : fixed;
+		left        : 0;
+		right       : 0;
+		z-index     : @mobile-bar-zindex;
+		font-family : @m-font-family;
+		.flexbox(row; wrap);
+		.box-shadow(@m-block-shadow);
+		.clearfix-mixin;
+		.translate3d(0; 0; 0);
+
+		&.scroll-effect when(@m-top-nav-scroll-effect) {
+			// scroll effect
+			&.bar-scroll-hide {
+				.animation(hide 0.5s forwards);
+
+			}
+			&:not(.bar-scroll-hide) {
+				.animation(show 0.5s forwards);
+			}
+
+			@-webkit-keyframes hide {
+				0% {
+					.translate3d(0; 0; 0);
+				}
+				100% {
+					.translate3d(0; -100%; 0);
+				}
+			}
+			@-webkit-keyframes show {
+				0% {
+					.translate3d(0; -100%; 0);
+
+				}
+				100% {
+					.translate3d(0; 0; 0);
+				}
+			}
+		}
+		// scroll effect end
+
+		&.top when (@top-block) {
+			top         : 0;
+			line-height : @top-block-height;
+			color       : @top-block-color;
+			background  : @top-block-bg;
+
+			.btn {
+				&.icon when (@flexkit-icons) and (@button-type-icon) and (@button-types) {
+					width : @top-block-height;
+				}
+			}
+		}
+
+		&.bottom when (@bottom-block) {
+			bottom      : 0;
+			line-height : @bottom-block-height;
+			color       : @bottom-block-color;
+			background  : @bottom-block-bg;
+			border-top  : 1px solid darken(@menu-bg, 5%);
+			.box-shadow(none);
+
+			.flexbox(row; nowrap);
+
+			& > * {
+				.flex-box-size(1);
+				text-align : center;
+				font-size  : 12px;
+			}
+
+			a {
+				text-decoration : none;
+				color           : lighten(@m-text-color, 15%);
+			}
+
+			.btn {
+				&.icon when (@flexkit-icons) and (@button-type-icon) and (@button-types) {
+					width : @bottom-block-height;
+				}
+			}
+		}
+
+		@media only print {
+			& {
+				display : none;
+			}
+		}
+
+		.title {
+			font-size    : 20px;
+			padding      : 0 ~'calc(72px - ' @m-top-nav-height ~')';
+			margin-right : auto;
+			.flex-flexible(0; 1; 50%);
+			.text-overflow;
+		}
+
+		.btn {
+			line-height : inherit;
+			width       : @m-top-nav-height;
+			color       : inherit;
+			//background-color : transparent;
+			border      : none;
+			.flex-flexible(0 0 @m-top-nav-height);
+
+			&::before {
+				margin    : initial;
+				font-size : 18px;
+			}
+		}
+	}
+
+	// Top tabs
+	//==================================================
+	.tabs when not(@m-tabs) {
+		display : none;
+	}
+	.tabs when (@m-tabs) {
+		.flexbox(row; nowrap);
+		.flex-flexible(1; 0; 100%);
+		text-transform : uppercase;
+		color          : @m-tabs-color;
+		font-weight    : 500;
+		overflow-x     : auto;
+		height         : @m-tabs-height;
+		line-height    : @m-tabs-height;
+		.scroll-bar(0);
+
+		// reset styles
+		.sub-menu-btn {
+			display : none;
+		}
+		li, a {
+			padding : 0;
+			margin  : 0;
+
+		}
+
+		.items-wrap, ul {
+			.reset-style;
+			.inline-block-wrap(middle; @font-size: @m-font-size);
+			min-width   : 100vw;
+			white-space : nowrap;
+			text-align  : center;
+			// TODO fix on desktop
+			overflow    : visible;
+		}
+
+		li {
+			display : inline-block;
+			float   : none;
+
+			//TODO fix on desktop
+			border  : none !important;
+		}
+
+		a {
+			display         : block;
+			text-decoration : none;
+			color           : inherit;
+			border-bottom   : 2px solid transparent;
+			padding         : 0 @m-tabs-item-gutter;
+			line-height     : @m-tabs-height - 2px;
+
+			&.current {
+				// TODO remove !important
+				background-color : transparent !important;
+				border-color     : @m-tabs-border-color;
+				color            : @m-tabs-color-active
+			}
+		}
+		&.sub-of-main when not (@m-tabs_sub-of-main) {
+			display : none;
+		}
+		&.sub-of-main when (@m-tabs_sub-of-main) {
+			.category:not(.category-current) {
+				display : none;
+			}
+			.category-current {
+				.scroll-bar(0);
+				&::after {
+					content : none;
+				}
+				& > a, .sub-menu-btn {
+					display : none;
+				}
+				ul {
+					.inline-block-wrap(middle; @font-size: @m-font-size);
+					display     : block;
+					white-space : nowrap;
+					position    : static;
+					&::after {
+						content : none;
+					}
+				}
+			}
+		}
+	}
+
+
+	.menu-btn {
+		&:hover, &.active {
+			.rgba(#000000; 10%);
+		}
+
+		&.active {
+		}
+	}
+
+	.sub-menu-btn {
+		//float      : right;
+		width      : @m-side-item-height; //unit(@button-line-height * 2, em);
+		text-align : center;
+		color      : @primary-color;
+		font-size  : 1.25em;
+		position   : absolute;
+		right      : 0;
+		top        : 0;
+
+		&::before {
+			content     : "\e0ac";
+			font-family : @font-family-icons;
+			color       : @gray-light;
+
+		}
+
+		&:hover, &.active {
+			&::before {
+				content : "\e0aa";
+			}
+		}
+	}
+	@media only screen and (max-width : @responsive-size-tablet) {
+		& when (@mobile-menu-over) {
+			@import "menu/over";
+		}
+		& when (@mobile-menu-under) and not(@mobile-menu-over) {
+			@import "menu/under";
+		}
+	}
+}
+
+@import "menu/menu";
+
+& when (@mobile-dropdown) {
+	@import "menu/dropdown";
+}

@@ -1,0 +1,150 @@
+.captcha when (@form-captcha) {
+
+	label, input {
+		float       : left;
+		width       : 100%;
+		font-weight : normal;
+	}
+
+	.captcha_field {
+		margin-bottom : 1em;
+	}
+
+	.recaptcha_links, .captcha_image {
+		a {
+			.button();
+			float        : left;
+			overflow     : hidden;
+			padding      : 0;
+			white-space  : nowrap;
+			width        : unit(@button-line-height * 2, em);
+
+			&::before {
+				font-family : @font-family-icons;
+				width       : 100%;
+				float       : left;
+				margin      : 0;
+				line-height : inherit !important;
+			}
+			margin-right : 0.25em;
+		}
+	}
+
+	.captcha_image {
+		width         : 100% !important;
+		height        : auto !important;
+		float         : left;
+		text-align    : center;
+		margin-bottom : 1em;
+		br {
+			display : none;
+		}
+		span {
+			float : left;
+		}
+	}
+
+	.recaptcha_links {
+		float         : left;
+		margin-bottom : 1em;
+		a {
+			&[href="javascript:Recaptcha.reload();"] {
+				&::before {
+					content: "\e093";
+				}
+			}
+			&.recaptcha_only_if_image {
+				&::before {
+					content: "\e0e2";
+				}
+			}
+			&.recaptcha_only_if_audio {
+				&::before {
+					content: "\e008";
+				}
+			}
+			&.recaptcha_help {
+				&::before {
+					content: "\e0e3";
+				}
+			}
+		}
+	}
+
+	#recaptcha_audio_play_again {
+		&::before {
+			content: "\e0e4";
+		}
+	}
+
+	#recaptcha_audio_download {
+		&::before {
+			content: "\e0e1";
+		}
+	}
+
+	@media only screen and (max-width : @responsive-size-mobile), only screen and (min-width : @responsive-size-tablet) {
+		aside & {
+			.recaptcha_links {
+				width : 100%;
+				a {
+					margin : 0;
+					width  : 32%;
+					& + a {
+						margin-left : 2%;
+					}
+				}
+			}
+			.captcha_image {
+				span {
+					width : 49%;
+					& + br {
+						& + span {
+							margin-left : 2%;
+						}
+					}
+				}
+				a {
+					margin : 0;
+					width  : 100%;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width : @responsive-size-mobile) {
+		.recaptcha_links {
+			width : 100%;
+			a {
+				margin : 0;
+				width  : 32%;
+				& + a {
+					margin-left : 2%;
+				}
+			}
+		}
+		.captcha_image {
+			span {
+				width : 49%;
+				& + br {
+					& + span {
+						margin-left : 2%;
+					}
+				}
+			}
+			a {
+				margin : 0;
+				width  : 100%;
+			}
+		}
+	}
+
+	.tablet &, .mobile & {
+		.captcha_image {
+			span{
+				width: 100%;
+			}
+		}
+	}
+
+}

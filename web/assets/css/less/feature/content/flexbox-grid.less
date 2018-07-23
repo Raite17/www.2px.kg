@@ -1,0 +1,160 @@
+.flex-box-reset () {
+    display                : -webkit-flex;
+    display                : -ms-flexbox;
+    display                : -webkit-box;
+    display                : flex;
+
+    // row | row-reverse | col | col-reverse
+    -webkit-flex-direction : row;
+    -ms-flex-direction     : row;
+    flex-direction         : row;
+
+    // nowrap | wrap | wrap-reverse
+    -webkit-flex-wrap      : wrap;
+    -ms-flex-wrap          : wrap;
+    flex-wrap              : wrap;
+
+    // flex-start | flex-end | center | baseline | stretch
+    -webkit-align-items    : flex-start;
+    -ms-align-items        : flex-start;
+    align-items            : flex-start;
+}
+.fcontainer{
+    display : -webkit-flex;
+    display : -ms-flexbox;
+    display : -webkit-box;
+    display : flex;
+
+    width                 : @grid-container-width;
+    margin-left           : auto;
+    margin-right          : auto;
+
+    &-row{
+        webkit-box-orient      : horizontal;
+        -moz-box-orient        : horizontal;
+        box-orient             : horizontal;
+
+        -webkit-flex-direction : row;
+        -ms-flex-direction     : row;
+        flex-direction         : row;
+    }
+    &-column{
+        webkit-box-orient      : vertical;
+        -moz-box-orient        : vertical;
+        box-orient             : vertical;
+
+        -webkit-flex-direction : column;
+        -ms-flex-direction     : column;
+        flex-direction         : column;
+    }
+}
+.flex-container(@display:flex){
+    display                : -webkit-flex;
+    display                : -ms-flexbox;
+    display                : -webkit-box;
+    display                : flex;
+}
+// GRID CSS
+//==================================================
+[class*="fgrid_"]{
+    & when (@grid-system){
+        margin-left  : (@grid-margin-width / 2) !important;
+        margin-right : (@grid-margin-width / 2) !important;
+        position     : relative;
+        .flex-box-reset();
+    }
+}
+.f-align{
+    // global
+    &-middle{
+        margin : auto !important;
+    }
+
+    &-stretch, &-stretch > [class*="fgrid_"]{
+        -webkit-align-self : stretch;
+        -ms-align-self     : stretch;
+        align-self         : stretch;
+    }
+
+    &-start, &-start > [class*="fgrid_"]{
+        -webkit-align-self : flex-start;
+        -ms-align-self     : flex-start;
+        align-self         : flex-start;
+    }
+
+    &-end, &-end > [class*="fgrid_"]{
+        -webkit-align-self : flex-end;
+        -ms-align-self     : flex-end;
+        align-self         : flex-end;
+    }
+
+    &-center, &-center > [class*="fgrid_"]{
+        -webkit-align-self : center;
+        -ms-align-self     : center;
+        align-self         : center;
+    }
+}
+.f-column{
+    -webkit-flex-direction : column !important;
+    flex-direction         : column !important;
+    & > *{
+        -webkit-flex-basis : 100% - @grid-margin-width;
+        flex-basis         : 100% - @grid-margin-width;
+    }
+
+}
+.flex-grid();
+
+
+// Grid system
+//==================================================
+.flex-grid() when (@flex-grid-system){
+    .flex-grid-list();
+}
+.flex-grid-list(@grid : @grid-columns; @prefix : ~''; @num-column : 1; @switch : true) when (@grid >= @num-column){
+    .@{prefix}fgrid_@{num-column}{
+        -ms-flex-preferred-size : round(percentage((@num-column / @grid)) - @grid-margin-width, 3);
+        -webkit-flex-basis      : round(percentage((@num-column / @grid)) - @grid-margin-width, 3);
+        flex-basis              : round(percentage((@num-column / @grid)) - @grid-margin-width, 3);
+
+        &.@{prefix}alpha, &.@{prefix}omega{
+            & when (@grid-system-alpha-omega){
+                -ms-flex-preferred-size : round(percentage(@num-column / @grid) - @grid-margin-width / 2, 3);
+                -webkit-flex-basis      : round(percentage(@num-column / @grid) - @grid-margin-width / 2, 3);
+                flex-basis              : round(percentage(@num-column / @grid) - @grid-margin-width / 2, 3);
+            }
+        }
+        &.@{prefix}alpha.@{prefix}omega{
+            & when (@grid-system-alpha-omega){
+                -ms-flex-preferred-size : round(percentage(@num-column / @grid), 3);
+                -webkit-flex-basis      : round(percentage(@num-column / @grid), 3);
+                flex-basis              : round(percentage(@num-column / @grid), 3);
+            }
+        }
+    }
+    .flex-grid-list(@grid; @prefix; @num-column + 1; false);
+
+    & when (@switch){
+        .@{prefix}alpha when (@grid-system-alpha-omega){
+            margin-left : 0 !important;
+        }
+        .@{prefix}omega when (@grid-system-alpha-omega){
+            margin-right : 0 !important;
+        }
+
+        .prefix(@grid; @prefix; @num-column);
+        .suffix(@grid; @prefix; @num-column);
+        .push(@grid; @prefix; @num-column);
+        .pull(@grid; @prefix; @num-column);
+        .order(@grid; @prefix; @num-column);
+    }
+}
+.order(@grid : @grid-columns, @prefix : ~'', @num-column) when (@grid > @num-column){
+    .@{prefix}f-order_@{num-column}{
+        -webkit-box-ordinal-group : @num-column;
+        -webkit-order             : @num-column !important;
+        -ms-order                 : @num-column !important;
+        order                     : @num-column !important;
+    }
+    .order(@grid, @prefix, @num-column + 1);
+}

@@ -1,0 +1,125 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+    <header class="wrap line-header -transparent d-visible">
+        <h1 class="grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+            <a href="#" title="2 PX" itemprop="url" class="current">
+            </a>
+        </h1>
+        <nav id="main-menu" class="grid_8 d-visible">
+            <ul class="main_menu">
+                <li class="category cat-1">
+                    <a  href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="grid_12" role="main">
+            <h2 class="text-center">{{ movie.title }}</h2>
+            <ul class="today list-movies text-center">
+                <li>
+                    <img src="{{ asset('assets/img/uploads/' ~ movie.poster) }}" alt="{{ movie.title }}" ><br>
+                </li>
+            </ul><br />
+            <div class="movie-showtimes">
+                <div class="header">
+                    <div class="wide-select">
+                        <label>Репертуар сеансов на:</label>
+                        <button value="0" type="button" class="btn btn-sm btn-default">Сегодня</button>
+                        <button value="1" type="button" class="btn btn-sm btn-primary">Завтра</button>
+                        <button value="2" type="button" class="btn btn-sm btn-default">24.07</button>
+                        <button value="3" type="button" class="btn btn-sm btn-default">25.07</button>
+                    </div>
+                </div>
+                <div class="cinemas">
+                    <div class="cinema-item">
+                        <a class="cinema_title" href="#">Расписание</a>
+                        <div class="halls">
+                            <div class="hall">
+                                <div class="hall-name">Зал IMAX</div>
+                                <span class="times">
+                                    <button class="time time-10-55">
+                                        <span>10:55</span>
+                                    </button>
+                                    <button class="time time-13-30">
+                                        <span>13:30</span>
+                                    </button>
+                                    <button class="time time-16-05">
+                                        <span>16:05</span>
+                                    </button>
+                                    <button class="time time-18-40">
+                                        <span>18:40</span>
+                                    </button>
+                                    <button class="time time-21-15">
+                                        <span>21:15</span>
+                                    </button>
+                                    <button class="time time-23-50">
+                                        <span>23:50</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="hall">
+                                <div class="hall-name">Зал 3D</div>
+                                <span class="times">
+                                    <button class="time time-14-05">
+                                        <span>14:05</span>
+                                    </button>
+                                    <button class="time time-16-05">
+                                        <span>16:05</span>
+                                    </button>
+                                    <button class="time time-18-40">
+                                        <span>18:40</span>
+                                    </button>
+                                    <button class="time time-21-15">
+                                        <span>21:15</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="hall">
+                                <div class="hall-name">Малый Зал</div>
+                                <span class="times">
+                                    <button class="time time-14-05">
+                                        <span>14:05</span>
+                                    </button>
+                                    <button class="time time-16-05">
+                                        <span>16:05</span>
+                                    </button>
+                                    <button class="time time-18-40">
+                                        <span>18:40</span>
+                                    </button>
+                                    <button class="time time-21-15">
+                                        <span>21:15</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="hall">
+                                <div class="hall-name">VIP Зал</div>
+                                <span class="times">
+                                    <button class="time time-14-05">
+                                        <span>14:05</span>
+                                    </button>
+                                    <button class="time time-16-05">
+                                        <span>16:05</span>
+                                    </button>
+                                    <button class="time time-18-40">
+                                        <span>18:40</span>
+                                    </button>
+                                    <button class="time time-21-15">
+                                        <span>21:15</span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

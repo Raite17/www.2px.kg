@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1  class="text-center" style="margin-top: 10px;" >Movies list</h1>
+    <a   class="btn btn-primary" href="{{ path('movies_new') }}">Create a new movie</a>
+    <table   style="margin-top: 10px;" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Жанр</th>
+                <th>Страна</th>
+                <th>Премьера</th>
+                <th>Дата создания записи</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.genre }}</td>
+                <td>{{ movie.country }}</td>
+                <td>{% if movie.premier %}{{ movie.premier|date('d-m-Y ') }}{% endif %}</td>
+                <td>{% if movie.createdAt %}{{ movie.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('movies_show', { 'id': movie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('movies_edit', { 'id': movie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

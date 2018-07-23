@@ -1,0 +1,73 @@
+hr {
+    clear       : both;
+    border      : none;
+    border-top  : @hr-size solid @hr-color;
+    line-height : 0;
+    margin      : 1em 0;
+    background  : @content-bg;
+    color       : @hr-color;
+
+    &.small when (unit(@hr-size) > 1) {
+        border-top-width : 1px;
+    }
+
+    &.large {
+        border-top-width : @hr-size * 2;
+    }
+
+    &.larger {
+        border-top-width : @hr-size * 3;
+    }
+
+    // With text
+    &::before {
+        content     : attr(title);
+        top         : -0.6em;
+        position    : relative;
+        line-height : 1.2em;
+        color       : inherit;
+        max-width   : 94%;
+        margin      : -(@hr-size / 2) 3% 0;
+        padding     : 0 .75em;
+        background  : inherit;
+        .text-overflow();
+        .inline-block();
+    }
+
+    &[class*="icon-"], &[class^=" icon-"] {
+        &::before {
+            top : -0.5em;
+        }
+    }
+
+    &.left when (@separator-left) and (@separator-style) {
+        text-align : left;
+    }
+    &.right when (@separator-right) and (@separator-style) {
+        text-align : right;
+    }
+    &.center when (@separator-center) and (@separator-style) {
+        text-align : center;
+    }
+
+    // Separator circle
+    &.circle when (@separator-circle) and (@separator-style) {
+        zoom : 1;
+
+        &::before {
+            padding    : .35em .75em;
+            background : @hr-color;
+            color      : #fff;
+            top        : -0.9em;
+            .border-radius(2em);
+        }
+    }
+
+    &.dashed {
+        border-top-style : dashed;
+    }
+
+    &.dotted {
+        border-top-style : dotted;
+    }
+}

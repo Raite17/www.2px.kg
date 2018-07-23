@@ -1,0 +1,100 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+
+        <header class="grid_12  line-header -transparent d-visible">
+            <div class="h1 grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+                <a href="#" title="2px" itemprop="url" class="current"></a>
+            </div>
+            <nav id="main-menu" class="grid_8 d-visible">
+                <ul class="main_menu">
+                    <li class="category cat-1">
+                        <a  href="{{ path('index') }}">Главная</a>
+                    </li>
+                    <li class="category cat-1">
+                        <a href="{{ path('contacts') }}">Контакты</a>
+                    </li>
+                    <li class="category cat-1">
+                        <a href="{{ path('sign_in') }}">Вход</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- Content box -->
+
+       <div id="page" class="container">
+           <section class="grid_6 prefix_3 contact" role="main">
+               <form action="javascript:void (0)" class="form-sign_in">
+                   <fieldset>
+                       <legend class="text-center">Регистрация</legend>
+                       <p class="grid_6">
+                           <label for="inputLogin" class="sr-only">Логин</label>
+                           <input type="text" id="inputLogin"  placeholder="Введите логин" required>
+                       </p>
+                       <p class="grid_6">
+                           <label for="inputEmail" class="sr-only">Email</label>
+                           <input type="email" id="inputEmail" name="email"  placeholder="Электронная почта" required autofocus>
+                       </p>
+                       <p class="grid_6">
+                           <label for="inputPassword" class="sr-only">Пароль</label>
+                           <input type="password" id="inputPassword" name="inputPassword"  placeholder="Введите пароль" required autofocus>
+                       </p>
+                       <p class="grid_6">
+                           <label for="inputPassword_repeat" class="sr-only">Подтвердите пароль</label>
+                           <input type="password" name="inputPassword_repeat" id="inputPassword_repeat"  placeholder="Подтвердите пароль" required>
+                       </p>
+                       <p class="grid_12">
+                           <button type="submit">Регистрация</button>
+                       </p>
+                   </fieldset>
+               </form>
+           </section>
+       </div>
+
+    <footer>
+        <div class="container">
+            <div class="grid_6 t-grid_3 col_left">
+                <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+                <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+            </div>
+            <div class="grid_6 t-grid_3 text-right col_right">
+                <p>Необходима помощь? - Пишите:</p>
+                <a href=#" itemprop="email">support@2px.kg</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Регистрация</span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+
+    <header class="grid_12 d-visible">
+        <div class="h1 grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+            <a href="#" title="2px" itemprop="url" class="current"></a>
+        </div>
+        <nav id="main-menu" class="grid_8 d-visible">
+            <ul class="main_menu">
+                <li class="category cat-1">
+                    <a  href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Container -->
+    <div id="page" class="container">
+        <section class="grid_6 prefix_3 contact" role="main">
+            <form action="javascript:void (0)" class="form-sign_in">
+                <fieldset>
+                    <legend class="text-center">Вход</legend>
+                    <p class="grid_6">
+                        <label for="inputLogin" class="sr-only">Логин</label>
+                        <input  type="text" id="inputLogin" name="login"  placeholder="Введите Логин" required autofocus>
+                    </p>
+                    <p class="grid_6">
+                        <label for="inputPassword" class="sr-only">Пароль</label>
+                        <input  type="password" id="inputPassword"  placeholder="Введите пароль" required>
+                    </p> <br /><br />
+
+                    <label class="checkbox text-center">
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Запомнить меня
+                    </label>
+
+                    <p class="button">
+                        <button type="submit">Войти</button>
+                    </p>
+                    <p class="message text-center">Not registered? <a href="{{ path('sign_up') }}">Create an account</a></p>
+                </fieldset>
+            </form>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+        <div class="grid_6 t-grid_3 col_left">
+            <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+            <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+        </div>
+        <div class="grid_6 t-grid_3 text-right col_right">
+            <p>Необходима помощь? - Пишите:</p>
+            <a href=#" itemprop="email">support@2px.kg</a>
+        </div>
+    </div>
+</footer>
+
+    <!-- Include mobile elements template -->
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Вход</span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+                <li class="category  cat-3">
+                    <a href="#">О нас</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
+{% endblock %}

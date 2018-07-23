@@ -1,0 +1,28 @@
+.ui-autocomplete when (@componentsJS-autocomplete) {
+    padding      : 0;
+    position     : absolute;
+    z-index      : 999;
+    overflow     : auto;
+    font-size    : @font-size-base;
+    max-height   : @font-size-base * @line-height * 8 * @padding-mini-vertical * 2;
+    border       : @input-border-width solid @input-border-color;
+    background   : @autocomplete-bg;
+    color        : @autocomplete-color;
+    list-style   : none;
+
+    .ui-menu-item {
+        margin : 0;
+        cursor : pointer;
+
+        a {
+            display : block;
+            color   : inherit;
+            padding : @padding-mini-vertical;
+        }
+
+        &:hover, &.ui-state-focus {
+            color      : @autocomplete-item-color-hover;
+            background : @autocomplete-item-bg-hover;
+        }
+    }
+}

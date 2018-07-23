@@ -1,0 +1,64 @@
+.carousel when (@componentsJS-carousel) {
+    position  : relative;
+    max-width : 100%;
+    .user-select();
+
+    .carousel-clip {
+        overflow : hidden;
+        height   : 100%;
+    }
+
+    .carousel-wrap {
+        .inline-block-wrap(top; ~'.carousel-item');
+        min-width : 100%;
+    }
+
+    &:hover {
+        .carousel-btn {
+            display : block;
+        }
+    }
+
+    .carousel-btn {
+        .rgba(#fff; 75%);
+        position  : absolute;
+        top       : 0;
+        bottom    : 0;
+        z-index   : 15;
+        margin    : auto;
+        width     : 3em;
+        display   : none;
+        font-size : @font-size-base;
+
+        &::before {
+            font-family : @font-family-icons;
+            font-size   : 3em;
+            line-height : 1;
+            height      : 1em;
+            position    : absolute;
+            left        : 0;
+            top         : 0;
+            bottom      : 0;
+            margin      : auto;
+        }
+
+        &.prev {
+            left : 0;
+
+            &::before {
+                content : "\e0a9";
+            }
+        }
+        &.next {
+            right : 0;
+
+            &::before {
+                content : "\e0a7";
+            }
+        }
+
+        &:hover {
+            .rgba(#fff; 90%);
+        }
+    }
+}
