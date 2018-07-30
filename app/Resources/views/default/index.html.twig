@@ -86,9 +86,6 @@
                                 <div class="movie-title">
                                     <span>{% if movie.premier %}{{ movie.premier|date('d-m-Y ') }}{% endif %}</span>
                                     <span>{{ movie.title }}</span>
-                                    <form action="{{ path('book_tickets',{'id' : movie.id}) }}">
-                                        <button>Забронировать</button>
-                                    </form>
                                     <a href="{{ path('movie_info', {'id': movie.id}) }}">Подробнее</a>
                                 </div>
                             </div>

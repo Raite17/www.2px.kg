@@ -45,18 +45,30 @@ class MoviesController extends Controller
         $form = $this->createForm('AppBundle\Form\MoviesType', $movie);
         $upload = $this->createForm(MoviesType::class,$movie);
         $form->handleRequest($request);
-        $upload->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && $upload->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /**
              * @var UploadedFile $file
              */
             $em = $this->getDoctrine()->getManager();
             $file = $movie->getPoster();
+            $screens = $movie->getScreenshots();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(
                 $this->getParameter('upload_directory' ),$fileName
             );
+            if(!is_array($screens)) {
+                $screens = array($screens);
+            }
+            $screen_arr = array();
+            foreach ($screens as $screen){
+                $screen_name = md5(uniqid()).'.'.$screen->guessExtension();
+                $screen->move(
+                    $this->getParameter('upload_directory' ),$screen_name
+                );
+                $screen_arr[] = $screen_name;
+            }
+            $movie->setScreenshots(json_encode($screen_arr));
             $movie->setPoster($fileName);
             $em->persist($movie);
             $em->flush();
