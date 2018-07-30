@@ -26,8 +26,8 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $today = $em->getRepository('AppBundle:Movies')->findBy(array(),  array('premier' => 'ASC'),11);
-        $soon = $em->getRepository('AppBundle:Movies')->findBy(array(), array('premier' => 'DESC'),4);
-        $slider = $em->getRepository('AppBundle:Movies')->findBy(array('id' => [6,7,9,10,13,17]));
+        $soon = $em->getRepository('AppBundle:Movies')->findBy(array(), array('premier' => 'DESC'),5);
+        $slider = $em->getRepository('AppBundle:Movies')->findBy(array('id' => [6,7,9,10,11,13,17]));
         $soon = array_reverse($soon);
 
         return $this->render('default/index.html.twig', array(

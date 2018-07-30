@@ -25,6 +25,7 @@ class MoviesType extends AbstractType
                   add('description')->
                   add('trailer')->
                   add('screenshots', FileType::class,array('multiple'=> true, 'data_class' => null,'label'=> 'Кадры из фильма'))->
+                  add('slider')->
                   add('createdAt');
     }/**
      * {@inheritdoc}
