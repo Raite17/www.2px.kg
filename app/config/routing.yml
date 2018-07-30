@@ -1,46 +1,42 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
-
 index:
     path: /homepage
-    defaults: { _controller: AppBundle:Default:index}
+    defaults: { _controller: "AppBundle:Default:index" }
 
 contacts:
     path: /contacts
-    defaults: { _controller: AppBundle:Default:Contact }
+    defaults: {_controller: "AppBundle:Default:Contact" }
 
 sign_in:
     path: /sign_in
-    defaults: { _controller: AppBundle:Default:Login }
+    defaults: {_controller: "AppBundle:Default:Login"}
 
 sign_up:
     path: /sign_up
-    defaults: { _controller: AppBundle:Default:Register }
+    defaults: {_controller: "AppBundle:Default:Register"}
 
 movies_index:
-    path:     /index
-    defaults: { _controller: "AppBundle:Movies:index" }
+    path: /index
+    defaults: {_controller: "AppBundle:Movies:index"}
     methods:  GET
 
 movies_show:
-    path:     /{id}/show
-    defaults: { _controller: "AppBundle:Movies:show" }
+    path: /{id}/show
+    defaults: {_controller: "AppBundle:Movies:show"}
     methods:  GET
 
 movies_new:
-    path:     /new
-    defaults: { _controller: "AppBundle:Movies:new" }
+    path: /new
+    defaults: {_controller: "AppBundle:Movies:new"}
     methods:  [GET, POST]
 
 movies_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "AppBundle:Movies:edit" }
+    path:  /{id}/edit
+    defaults: {_controller: "AppBundle:Movies:edit"}
     methods:  [GET, POST]
 
 movies_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "AppBundle:Movies:delete" }
+    path: /{id}/delete
+    defaults: {_controller: "AppBundle:Movies:delete"}
     methods:  DELETE
 
 movie_info:
@@ -53,8 +49,18 @@ book_tickets:
     defaults: {_controller: "AppBundle:Default:Book_Tickets_"}
     methods: [GET,POST]
 
+order_tickets:
+    path: /order_new
+    defaults: {_controller: "AppBundle:Default:order"}
+    methods: [POST]
+
+user_page:
+       path: /user_page
+       defaults: {_controller: "AppBundle:Default:User_Page_"}
+       methods: [GET,POST]
+
 trailer:
     path: /movie_info/trailer/{name}.mp4
-    defaults: { _controller: "AppBundle:Default:trailer" }
+    defaults: {_controller: "AppBundle:Default:trailer"}
 
 

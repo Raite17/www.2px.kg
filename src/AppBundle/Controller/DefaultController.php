@@ -3,7 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Movies;
+use AppBundle\Entity\Orders;
 use AppBundle\Entity\Screenshots;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,30 +14,6 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use \Twig_Extension;
 
-class VarsExtension extends Twig_Extension
-{
-    protected $container;
-
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
-
-    public function getName()
-    {
-        return 'some.extension';
-    }
-
-    public function getFilters() {
-        return array(
-            'json_decode'   => new \Twig_Filter_Method($this, 'jsonDecode'),
-        );
-    }
-
-    public function jsonDecode($str) {
-        return json_decode($str);
-    }
-}
 
 class DefaultController extends Controller
 {
@@ -59,6 +37,37 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * @Route("/", name="order_new")
+     */
+    public function orderAction(Request $request){
+        $order = new Orders();
+        $movie_title = $request->request->get('movie_name');
+        $time = $request->request->get('time');
+        $hall = $request->request->get('hall');
+        $seats = $request->request->get('seats');
+
+//        print_r($request->request->all());
+
+        if (!$movie_title || !$time || !$hall || !$seats )
+        {
+            $error = json_encode(array('status' => false,'message' => 'No data'));
+            return new Response($error);
+        }
+
+        else
+        {
+            $em = $this->getDoctrine()->getManager();
+            $order->setMovieTitle($movie_title);
+            $order->setOrderTime($time);
+            $order->setHall($hall);
+            $order->setOrderSeat(json_encode($seats));
+            $em->persist($order);
+            $em->flush();
+            $succes = json_encode(array('status' => true,'message' => 'Success'));
+            return new Response($succes);
+        }
+    }
 
     /**
      * @Route("/", name="contact_page")
@@ -73,6 +82,21 @@ class DefaultController extends Controller
 
 
     /**
+     * @Route("/", name="user_page")
+     */
+
+    public function User_Page_Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $orders = $em->getRepository('AppBundle:Orders')->findAll();
+
+        return $this->render('default/user_page.html.twig', array(
+            'ticket' => $orders,
+        ));
+    }
+
+    /**
      * @Route("/", name="sign_in")
      */
     public function LoginAction(Request $request)
@@ -82,7 +106,6 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
-
 
     /**
      * @Route("/", name="sign_up")

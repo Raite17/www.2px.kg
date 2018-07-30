@@ -1,0 +1,110 @@
+{% extends 'head.html.twig' %}
+{% block body %}
+    <header class="wrap line-header -transparent d-visible">
+        <h1 class="grid_4 logo" itemscope="" itemtype="http://schema.org/Organization">
+            <a href="#" title="2 PX" itemprop="url" class="current">
+            </a>
+        </h1>
+        <nav id="main-menu" class="grid_8 d-visible">
+            <ul class="main_menu">
+                <li class="category cat-1">
+                    <a  href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category cat-1">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div  class="container">
+        <section class="grid_12" role="main">
+            <div class="grid_6 gray-darker-bg">
+                <h4 class="page-title">Информация о пользователе</h4>
+                <div class="margin-bottom">
+                    <div class="cardBalance">
+                        <strong>Логин:</strong> 6996 сом
+                    </div>
+                    <div class="cardBalance"><strong>Ваша скидка:</strong> 5%</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <div class="container">
+            <section class="grid_12">
+                <h2 class="text-center">История Бронирования</h2>
+                <table class="table-bordered  responsive">
+                    <tr>
+                        <th>№ Брони</th>
+                        <th>Дата Сеанса</th>
+                        <th>Время Сеанса</th>
+                        <th>Зал</th>
+                        <th>Фильм</th>
+                        <th>Места</th>
+                    </tr>
+                    {% for order in ticket %}
+                        <tbody>
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ "now"|date("d/m/Y") }}</td>
+                            <td>{{ order.orderTime }}</td>
+                            <td>{{ order.hall }}</td>
+                            <td>{{ order.movieTitle }}</td>
+                            <td>{{ order.orderSeat }}</td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </section>
+        </div>
+
+    <footer>
+        <div class="container">
+            <div class="grid_6 t-grid_3 col_left">
+                <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+                <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+            </div>
+            <div class="grid_6 t-grid_3 text-right col_right">
+                <p>Необходима помощь? - Пишите:</p>
+                <a href= "#" itemprop="email">support@2px.kg</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Бронь Билетов </span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
+{% endblock %}

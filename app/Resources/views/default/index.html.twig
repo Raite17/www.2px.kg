@@ -36,7 +36,11 @@
                             <p class="slide-movie-title">{{ movie.title }}</p>
                             <div class="stars-container"></div>
                             <p class="movies-content">{{ movie.description }}</p>
-                            <p class="text-center"> <button>Забронировать Места</button></p>
+                            <p class="text-center">
+                                <button>
+                                    <a style="color: white; text-decoration: none" href="{{ path('book_tickets',{'id' : movie.id}) }}">Забронировать</a>
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>

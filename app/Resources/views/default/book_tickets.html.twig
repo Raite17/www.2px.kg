@@ -27,91 +27,83 @@
                 <li>
                     <img src="{{ asset('assets/img/uploads/' ~ movie.poster) }}" alt="{{ movie.title }}" ><br>
                 </li>
-            </ul><br />
+            </ul>
+            <br />
             <div class="movie-showtimes">
-                <div class="header">
-                    <div class="wide-select">
-                        <label>Репертуар сеансов на:</label>
-                        <button value="0" type="button" class="btn btn-sm btn-default">Сегодня</button>
-                        <button value="1" type="button" class="btn btn-sm btn-primary">Завтра</button>
-                        <button value="2" type="button" class="btn btn-sm btn-default">24.07</button>
-                        <button value="3" type="button" class="btn btn-sm btn-default">25.07</button>
-                    </div>
-                </div>
-                <div class="cinemas">
+                <div class="cinemas mt30px">
                     <div class="cinema-item">
                         <a class="cinema_title" href="#">Расписание</a>
                         <div class="halls">
                             <div class="hall">
-                                <div class="hall-name">Зал IMAX</div>
+                                <div class="hall-name" data-hall="IMAX">Зал IMAX</div>
                                 <span class="times">
-                                    <button class="time time-10-55">
+                                   <button class="dialog-btn time time-14-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="10-55" data-name="{{ movie.title }}">
                                         <span>10:55</span>
                                     </button>
-                                    <button class="time time-13-30">
+                                    <button class="dialog-btn time time-13-30"  data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="13-30" data-name="{{ movie.title }}">
                                         <span>13:30</span>
                                     </button>
-                                    <button class="time time-16-05">
+                                    <button class="dialog-btn time time-16-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="16-05" data-name="{{ movie.title }}">
                                         <span>16:05</span>
                                     </button>
-                                    <button class="time time-18-40">
+                                    <button class="dialog-btn time time-18-40" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="18-40" data-name="{{ movie.title }}">
                                         <span>18:40</span>
                                     </button>
-                                    <button class="time time-21-15">
+                                    <button class="dialog-btn time time-21-15" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="21-15" data-name="{{ movie.title }}">
                                         <span>21:15</span>
                                     </button>
-                                    <button class="time time-23-50">
+                                    <button class="dialog-btn time time-23-50" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="23-50">
                                         <span>23:50</span>
                                     </button>
                                 </span>
                             </div>
                             <div class="hall">
-                                <div class="hall-name">Зал 3D</div>
+                                <div class="hall-name" data-hall="Зал 3D">Зал 3D</div>
                                 <span class="times">
-                                    <button class="time time-14-05">
+                                    <button class="dialog-btn time time-14-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="14-05">
                                         <span>14:05</span>
                                     </button>
-                                    <button class="time time-16-05">
+                                    <button class="dialog-btn time time-16-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="16-05">
                                         <span>16:05</span>
                                     </button>
-                                    <button class="time time-18-40">
+                                    <button class="dialog-btn time time-18-40" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="18-40">
                                         <span>18:40</span>
                                     </button>
-                                    <button class="time time-21-15">
+                                    <button class="dialog-btn time time-21-15" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="21-15">
                                         <span>21:15</span>
                                     </button>
                                 </span>
                             </div>
                             <div class="hall">
-                                <div class="hall-name">Малый Зал</div>
+                                <div class="hall-name" data-hall="Малый Зал">Малый Зал</div>
                                 <span class="times">
-                                    <button class="time time-14-05">
+                                    <button class="dialog-btn time time-14-05 open-modal" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="14-05">
                                         <span>14:05</span>
                                     </button>
-                                    <button class="time time-16-05">
+                                    <button class="dialog-btn time time-16-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="16-05">
                                         <span>16:05</span>
                                     </button>
-                                    <button class="time time-18-40">
+                                    <button class="dialog-btn time time-18-40" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="18-40">
                                         <span>18:40</span>
                                     </button>
-                                    <button class="time time-21-15">
+                                    <button class="dialog-btn time time-21-15" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="21-15">
                                         <span>21:15</span>
                                     </button>
                                 </span>
                             </div>
                             <div class="hall">
-                                <div class="hall-name">VIP Зал</div>
+                                <div class="hall-name" data-hall="VIP Зал">VIP Зал</div>
                                 <span class="times">
-                                    <button class="time time-14-05">
+                                    <button class="dialog-btn dialog-btn time time-14-05"  data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="14-05">
                                         <span>14:05</span>
                                     </button>
-                                    <button class="time time-16-05">
+                                    <button class="dialog-btn time time-16-05" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="16-05">
                                         <span>16:05</span>
                                     </button>
-                                    <button class="time time-18-40">
+                                    <button class="dialog-btn time time-18-40" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="18-40">
                                         <span>18:40</span>
                                     </button>
-                                    <button class="time time-21-15">
+                                    <button class="dialog-btn time time-21-15" data-dialog-element="#dialogEffect" data-dialog-effect="clip" data-time="21-15">
                                         <span>21:15</span>
                                     </button>
                                 </span>
@@ -120,6 +112,62 @@
                     </div>
                 </div>
             </div>
+            <div id="dialogEffect">
+                <div class="modal-header">
+                    <h3  id="movie_title" style="color:black;">{{ movie.title }}</h3><br />
+                    <span style="color:black;">Дата : {{ "now"|date("d/m") }}</span>
+                    <span  class="time_cinema" style="color:black;"></span>
+                </div>
+                <div class='result'></div>
+                <div class='text-center cinemaHall zal1'></div>
+                <button  style="box-sizing: border-box" class="order_button col_right">Забронировать</button>
+            </div>
         </section>
     </div>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="grid_6 t-grid_3 col_left">
+                <p class="tel">Единая справочная - <br /> 0550 36 42 39</p>
+                <p>С 8:00 до 23:00 <br/> Бесплатно по стране с любого номера</p>
+            </div>
+            <div class="grid_6 t-grid_3 text-right col_right">
+                <p>Необходима помощь? - Пишите:</p>
+                <a href= "#" itemprop="email">support@2px.kg</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-bar top clearfix">
+        <span class="btn icon-menu" data-refer="main"></span>
+        <span class="title">Бронь Билетов </span>
+    </div>
+
+    <aside class="m-menu  left" data-el="main">
+        <div class="menu-top-header">
+            <ul class="main_menu">
+                <li class="category  cat-1">
+                    <a href="{{ path('index') }}">Главная</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('contacts') }}">Контакты</a>
+                </li>
+                <li class="category  cat-2">
+                    <a href="{{ path('sign_in') }}">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Bottom bar for mobile, with button show/hide menu -->
+    <div class="mobile-bar bottom clearfix">
+        <div class="_column_5 margin-none one-line large">
+            <!-- Include social share link -->
+        </div>
+    </div>
+    <!-- mobile loader -->
+    <span class="mobile-loader"></span>
 {% endblock %}

@@ -69,6 +69,202 @@
 .carousel .carousel-btn:hover {
   background: rgba(255, 255, 255, 0.9);
 }
+.ui-dialog {
+  position: absolute;
+  z-index: 100;
+  padding: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #3849a2;
+  background-color: #fff;
+  max-width: 90%;
+  color: inherit;
+  box-shadow: 4px 4px 4px #1d1e22;
+}
+.ui-effects-wrapper .ui-dialog {
+  max-width: none;
+}
+.ui-dialog.fixed {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-filter: blur(0);
+}
+.ui-dialog .ui-dialog-titlebar {
+  font-size: 1.25em;
+  background: #3F51B5;
+  color: #FFF;
+  padding: 10px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.ui-dialog.ui-draggable .ui-dialog-titlebar {
+  cursor: move;
+}
+.ui-dialog .ui-dialog-title {
+  display: block;
+  margin-right: 10px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: none;
+  margin: auto;
+  padding: 10px;
+  background: transparent;
+  color: #FFF;
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 0;
+}
+.ui-dialog .ui-dialog-titlebar-close:hover {
+  color: #f25f5c;
+}
+.ui-dialog .ui-dialog-titlebar-close::before {
+  font-size: 16px;
+}
+.ui-dialog .ui-dialog-titlebar-close::before {
+  font-family: flexkit-icons;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e099";
+}
+.ui-dialog .ui-dialog-titlebar-close .ui-button-text {
+  display: none;
+}
+.ui-dialog .ui-dialog-content {
+  position: relative;
+  border: 0;
+  padding: 10px 16px;
+  overflow: auto;
+}
+.ui-dialog .ui-dialog-content.visible {
+  overflow: visible;
+}
+.ui-dialog .ui-dialog-buttonpane {
+  overflow: hidden;
+  text-align: left;
+  border-width: 1px 0 0 0;
+  background-image: none;
+  padding: 8px 16px;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: right;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonpane button {
+  margin: .5em .4em .5em 0;
+  cursor: pointer;
+}
+.ui-dialog .ui-resizable-handle {
+  position: absolute;
+  font-size: 0.1px;
+  display: block;
+}
+.ui-dialog .ui-resizable-n {
+  cursor: n-resize;
+  height: 7px;
+  width: 100%;
+  top: -5px;
+  left: 0;
+}
+.ui-dialog .ui-resizable-e {
+  cursor: e-resize;
+  width: 7px;
+  right: -5px;
+  top: 0;
+  height: 100%;
+}
+.ui-dialog .ui-resizable-s {
+  cursor: s-resize;
+  height: 7px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+.ui-dialog .ui-resizable-w {
+  cursor: w-resize;
+  width: 7px;
+  left: -5px;
+  top: 0;
+  height: 100%;
+}
+.ui-dialog .ui-resizable-se {
+  cursor: se-resize;
+  width: 12px;
+  height: 12px;
+  right: -5px;
+  bottom: -5px;
+}
+.ui-dialog .ui-resizable-sw {
+  cursor: sw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  bottom: -5px;
+}
+.ui-dialog .ui-resizable-ne {
+  cursor: ne-resize;
+  width: 9px;
+  height: 9px;
+  right: -5px;
+  top: -5px;
+}
+.ui-dialog .ui-resizable-nw {
+  cursor: nw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  top: -5px;
+}
+.ui-dialog.success .ui-dialog-titlebar,
+.ui-dialog.warning .ui-dialog-titlebar,
+.ui-dialog.error .ui-dialog-titlebar,
+.ui-dialog.info .ui-dialog-titlebar {
+  color: #fff;
+}
+.ui-dialog.success {
+  border-color: #4fc752;
+}
+.ui-dialog.success .ui-dialog-titlebar {
+  background: #4fc752;
+}
+.ui-dialog.warning {
+  border-color: #ffc159;
+}
+.ui-dialog.warning .ui-dialog-titlebar {
+  background: #ffc159;
+}
+.ui-dialog.error {
+  border-color: #f25f5c;
+}
+.ui-dialog.error .ui-dialog-titlebar {
+  background: #f25f5c;
+}
+.ui-dialog.error .ui-dialog-titlebar .ui-dialog-titlebar-close:hover {
+  color: #ec1915;
+}
+.ui-dialog.info {
+  border-color: #28b0ed;
+}
+.ui-dialog.info .ui-dialog-titlebar {
+  background: #28b0ed;
+}
 .tooltip {
   cursor: help;
 }
